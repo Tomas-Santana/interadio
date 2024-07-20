@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 </script>
 
 <template>
-  <div class="hidden lg:flex h-dvh border w-96 p-4">
+  <div class="hidden lg:flex h-dvh border w-96 p-4 bg-slate-50 sticky top-0">
     <SidebarContent />
   </div>
 </template>

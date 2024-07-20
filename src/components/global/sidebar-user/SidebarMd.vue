@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
         <Menu />
       </Button>
     </SheetTrigger>
-    <SheetContent side="left">
+    <SheetContent side="left" class="bg-slate-50">
       <SidebarContent />
     </SheetContent>
   </Sheet>
