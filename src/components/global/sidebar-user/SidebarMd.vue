@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 <template>
   <Sheet>
     <SheetTrigger as-child class="lg:hidden">
-      <Button variant="ghost" class="aspect-square">
+      <Button variant="ghost">
         <Menu />
       </Button>
     </SheetTrigger>

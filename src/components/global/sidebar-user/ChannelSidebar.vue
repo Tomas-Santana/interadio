@@ -6,11 +6,6 @@ const props = defineProps<{
   name: string;
 }>();
 
-// random hex color
-const colors = ["red", "orange", "amber", "yellow", "lime" ]
-
-const randomColor = colors[Math.floor(Math.random() * colors.length)]
-console.log(randomColor)
 </script>
 
 <template>

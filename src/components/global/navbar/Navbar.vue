@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { Search } from 'lucide-vue-next';
-import SidebarMd from '../sidebar/SidebarMd.vue';
+import SidebarMd from '../sidebar-user/SidebarMd.vue';
 import UserDropdown from './UserDropdown.vue';
 import Input from '@/components/ui/input/Input.vue';
 </script>
 
 <template>
-  <div class="flex items-center gap-4 p-2 px-4">
+  <div class="flex items-center gap-4 p-2 px-4 border-b">
     <SidebarMd />
     <div class="relative w-full max-w-sm items-center">
       <Input id="search" type="text" placeholder="Buscar por emisora o tópico..." class="pl-10" />

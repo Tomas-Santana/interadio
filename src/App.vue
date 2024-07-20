@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import SidebarLg from './components/global/sidebar/SidebarLg.vue';
+import SidebarLg from './components/global/sidebar-user/SidebarLg.vue';
 import Navbar from './components/global/navbar/Navbar.vue';
 </script>
 
