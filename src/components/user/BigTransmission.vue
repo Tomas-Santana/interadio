@@ -3,14 +3,35 @@ import type { Transmission } from '@/stores/transmissionStore';
 import { computed } from 'vue';
 import { Heart, Bell } from 'lucide-vue-next';
 import Controls from './Controls.vue';
+import { transmissionStore } from '@/stores/transmissionStore';
+import { Button } from '../ui/button';
+import { toast } from 'vue-sonner';
 
 const props = defineProps<{
   transmission: Transmission;
+
 }>();
 
 const computedViews = computed(() => {
   return props.transmission.views >= 1000 ? `${(props.transmission.views / 1000).toFixed(1)}k` : props.transmission.views;
 });
+
+const isSaved = computed(() => {
+  return transmissionStore.saved.includes(props.transmission);
+});
+
+const toggleSave = () => {
+  if (isSaved.value) {
+    transmissionStore.saved = transmissionStore.saved.filter((transmission) => {
+      return transmission.id !== props.transmission.id;
+    });
+    toast.success('Transmisión eliminada de guardadas');
+  } else {
+    transmissionStore.saved.push(props.transmission);
+    toast.success('Transmisión guardada');
+  }
+
+};
 
 </script>
 
@@ -34,12 +55,13 @@ const computedViews = computed(() => {
           <p class="">{{ computedViews }} oyentes</p>
         </div>
         <div class="flex gap-2">
-          <div class="p-2 rounded-md bg-secondary/80 text-blue-600">
-            <Heart />
-          </div>
-          <div class="p-2 rounded-md bg-secondary/80 text-blue-600">
-            <Bell />
-          </div>
+          <Button variant="secondary" class="p-2 rounded-md bg-secondary/80 text-blue-600"
+            @click="toggleSave"
+            
+          >
+            <Heart :fill="isSaved ? 'rgb(37, 99, 235)': 'transparent'"   />
+          </Button>
+
         </div>
 
       </div>
