@@ -14,6 +14,7 @@ export type Transmission = {
 interface TransmissionStore {
   following: Transmission[];
   recommended: Transmission[];
+  saved: Transmission[];
 }
 
 export const transmissionStore: Reactive<TransmissionStore> = reactive({
