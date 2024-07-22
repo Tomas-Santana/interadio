@@ -1,5 +1,5 @@
 <script setup lang="ts" >
-import {ref} from 'vue'
+import {ref, watch} from 'vue'
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { currentUserStore } from '@/stores/currentUserStore';
@@ -12,27 +12,50 @@ interface Comment {
 const commentSection = ref<HTMLDivElement | null>(null)
 
 const comments = ref<Comment[]>([
-  { username: 'tomas', comment: 'Que bueno' },
-  { username: 'andres', comment: 'Super' },
-  { username: 'rafa', comment: 'Excelente' },
+  { username: 'tomas', comment: 'Me encanta interadio' },
+  { username: 'andres', comment: 'Es muy conveniente escuchar la radio desde cualquier lugar' },
+  { username: 'rafa', comment: 'La URU es la mejor universidad del mundo' },
 ])
 
+const optionalComments = [
+  { username: 'juan', comment: 'Hoy almorce pollo a la plancha' },
+  { username: 'miguel', comment: 'Me gusta el futbol' },
+  { username: 'admin1010', comment: 'El beisbol es lo mejor' },
+  { username: 'pedro', comment: 'Arriba las aguilas del zulia' },
+  { username: 'maria', comment: 'Me gusta el helado de chocolate con vainilla' },
+  { username: 'luis', comment: 'Me gusta el helado de chocolate con vainilla' },
+  { username: 'francisco', comment: 'soy el papa francisco dios los bendiga'}
+]
+
 const comment = ref<Comment>({
-  username: currentUserStore.name.toLowerCase(),
+  username: currentUserStore.username,
   comment: ''
 })
+
+setInterval(() => {
+  const randomIndex = Math.floor(Math.random() * optionalComments.length)
+  comments.value.push(optionalComments[randomIndex])
+}, 2000)
+
+const bottom = ref<HTMLDivElement | null>(null)
 
 const handleSendComment = () => {
   if (!comment.value.comment) return
   comments.value.push(comment.value)
   comment.value = { username: currentUserStore.name.toLowerCase(), comment: '' }
-  if (commentSection.value) {
-    commentSection.value.scroll({
-      top: commentSection.value.scrollHeight,
-      behavior: 'smooth'
-    })
+  
+  if (bottom.value) {
+    bottom.value.scrollIntoView({ behavior: 'smooth' })
   }
 }
+
+watch(comments, () => {
+  if (bottom.value) {
+    bottom.value.scrollIntoView({ behavior: 'smooth' })
+  }
+})
+
+
 
 </script>
 
@@ -49,6 +72,7 @@ const handleSendComment = () => {
         </div>
         {{ comment.comment }}
       </li>
+      <div ref="bottom"></div>
     </ul>
     <div class="w-full mt-auto flex gap-2">
       <Input placeholder="Escribe tu comentario" class="flex-1" v-model="comment.comment" />

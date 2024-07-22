@@ -17,7 +17,7 @@ import Transmission from '@/components/user/Transmission.vue';
   <div class="mt-10 p-4 flex flex-col gap-4">
     <h2 class="text-4xl font-bold">Transmisiones Guardadas</h2>
     <div class="flex gap-4 flex-wrap justify-center">
-      <div class="w-full max-w-sm" v-for="transmission in allTransmissions">
+      <div class="w-full max-w-sm" v-for="transmission in transmissionStore.saved">
         <Transmission :title="transmission.title" :description="transmission.description" :tags="transmission.tags"
           :img="transmission.img" :views="transmission.views" :channel="transmission.channel" :id="transmission.id" />
       </div>

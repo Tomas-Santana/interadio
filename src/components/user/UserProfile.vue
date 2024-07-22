@@ -11,7 +11,7 @@ import {Avatar, AvatarImage, AvatarFallback} from "@/components/ui/avatar"
     <div>
       <p class="text-3xl font-bold">{{ currentUserStore.name }} {{ currentUserStore.lastName }}</p>
       <p class="text-lg">
-        @{{ currentUserStore.name.toLowerCase() }}
+        @{{ currentUserStore.username }}
       </p>
 
     </div>

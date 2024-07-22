@@ -52,7 +52,6 @@ import {
         <DropdownMenuItem>
           <Smile class="mr-2 h-4 w-4" />
           <span>Soporte</span>
-          <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
         </DropdownMenuItem>
   
       </DropdownMenuGroup>
@@ -60,8 +59,7 @@ import {
       <DropdownMenuSeparator />
       <DropdownMenuItem>
         <LogOut class="mr-2 h-4 w-4" />
-        <span>Log out</span>
-        <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+        <span>Cerrar sesión</span>
       </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>

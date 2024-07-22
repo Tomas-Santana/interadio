@@ -105,6 +105,55 @@ export const transmissionStore: Reactive<TransmissionStore> = reactive({
       channel: "Juan Perez",
     },
   ],
+  saved: [
+    {
+      id: 2,
+      title: "Aguilas vs Tigres",
+      description: "Aguilas 5 - Tigres 3",
+      tags: ["Beisbol", "LVBP", "Deportes"],
+      img: "https://i.ytimg.com/vi/CBjs8Qabk2Q/hq720.jpg",
+      views: 2000,
+      channel: "Liga Venezolana de Beisbol Profesional",
+    },
+    {
+      id: 3,
+      title: "Exitos de Luis Miguel",
+      description: "Hasta que me olvides",
+      tags: ["Musica", "Mexico", "Baladas"],
+      img: "https://i.ytimg.com/vi/wEF19rvbH3I/hq720.jpg",
+      views: 3000,
+      channel: "Exitos Mexicanos",
+    },
+    {
+      id: 4,
+      title: "Argentina vs Colombia",
+      description: "Copa America 2024 - Argentina 1 - Colombia 1 ",
+      tags: ["Futbol", "America", "Deportes"],
+      img: "https://i.ytimg.com/vi/-eG3KB3h1LE/hq720.jpg",
+      views: 400,
+      channel: "Conmebol",
+    },
+    {
+      id: 10,
+      title: "Toad interpreta a Frank Sinatra",
+      description:
+        "Toad, el personaje de Mario Bros, interpreta a Frank Sinatra en un concierto en vivo",
+      tags: ["Frank", "Sinatra", "Nintendo"],
+      img: "https://i.ytimg.com/vi/ow5XgHDkPOQ/hq720.jpg",
+      views: 40000,
+      channel: "Nintendo",
+    },
+    {
+      id: 11,
+      title: "Wikipedia: $100/mes?????",
+      description:
+        "Conversamos con el fundador de Wikipedia sobre el futuro de la plataforma",
+      tags: ["wikipedia", "futuro", "podcast"],
+      img: "https://i.ytimg.com/vi/Bzj7u4Q5GG0/hq720.jpg",
+      views: 5000,
+      channel: "Juan Perez",
+    },
+  ],
 });
 
 export const allTransmissions = computed(() => {
